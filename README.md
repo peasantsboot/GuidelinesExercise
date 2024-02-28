@@ -1,35 +1,27 @@
-# SAP Integration Suite Übungen @ DSAG Technologietage 2024
+# Integration Flow Design Guidelines for Exactly Once delivery
 
-## Übersicht
+## Overview
 
-SAP Integration Suite ist SAP’s strategische Integration Platform-as-a-Service für die Integration von SAP und nicht-SAP Lösungen. Die SAP Integration Suite umfasst verschiedene Integrationstechnologien die es ihnen erlaubt ihre Systeme innerhalb ihrer hybriden Landschaft über den Nachrichtenaustausch, über APIs oder Events miteinander zu verbinden, sei es für A2A, B2B oder B2G, sei es in der Cloud oder on-premises, etc.
+As an integration developer, you need to make sure that you design integration flows in a robust fashion in order to safeguard your company's mission-critical business processes. The [Integration Flow Design Guidelines](https://help.sap.com/docs/integration-suite/sap-integration-suite/integration-flow-design-guidelines) help to design enterprise-grade integration flows on the Cloud Integration capability of SAP Integration Suite. They cover different aspects such as resource handling, better readability, security, error handling, etc. In addition, the most common Enterprise Integration Patterns are provided. As part of the patterns, we also provide guidelines about how to implement Quality of Service Exactly Once.
 
-Mehr Infos finden Sie [hier](https://help.sap.com/docs/integration-suite/sap-integration-suite/what-is-sap-integration-suite).
+This session focuses on the Exactly Once guidelines applying different capabilities that allow to implement Exaclty Once delivery in Cloud Integration such as ID mapper and idempotent process calls.
 
-## Übungen
+## Access to SAP Integration Suite tenant
 
-Wir stellen Ihnen zwei Übungen bzgl der SAP Integration Suite zur Verfügung:
+For running through the exercises, you need access to an SAP Integration Suite tenant.
 
-### Hybride Integration mit der Edge Integration Cell
+- Please use this [**SAP Integration Suite tenant**](https://cpisuite-europe-03.integrationsuite.cfapps.eu20-001.hana.ondemand.com/shell/home) for your exercises.
+- Use the user **userXX** with **XX** your ID and password provided by the instructors.
 
-Edge Integration Cell ist eine neue Laufzeit der SAP Integration Suite, die sie ergänzend zu den Tools und der Laufzeit in der Cloud in ihrem eigenem Netzwerk oder ihrer eigenen privaten Cloudumgebung betreiben können. Dies erlaubt es ihnen, den Nachrichtenaustausch zwischen Systemen ausschliesslich lokal zu prozessieren, sei es aus Datenschutz-oder Laufzeitgründen. In dieser Übung können sie sich mit der Funktionalität der Edge Integration Cell anhand eines Standardintegrationsszenarios vertraut machen.
+## Exercises
 
-[Discover next-generation hybrid integrations with Edge Integration Cell](https://github.com/peasantsboot/EdgeIntegrationCellExercise)
+In the following, the complete list of exercise steps are listed. You can use this section as an index or table of contents. Use the breadcrumb navigation on top of the pages to go back to the Table of Contents.
 
-### Migration von SAP Process Orchestration nach SAP Integration Suite
+If you are new to SAP Integration Suite, start with the first exercise. This shows you how to navigate within most of the SAP Integration Suite capabilities. Otherwise, if you are already experienced with SAP Integration Suite, you may skip this part.
 
-SAP NetWeaver 7.5 und damit SAP Process Integration / SAP Process Orchestration laufen spätestens Ende 2030 aus der Wartung. Wenn Sie wissen möchten, welche Tools Sie bei der Transformation von SAP Process Orchestration nach SAP Integration Suite unterstützen können, würde ich Ihnen diese Übung empfehlen. Sie lerne dabei sowohl das Migration Assessment als auch das Migration Tool kennen.
-
-[Start with the Right Mind-Set and Learn How to Modernize Your Integration](https://github.com/peasantsboot/MigrationExercise)
-
-Viel Spass.
-
-## Systemzugriff
-
-Zur Durchführung der Übungen stellen wir Ihnen ein SAP Integration Suite tenant zur Verfügung:
-
-- Zugriff über: [**SAP Integration Suite tenant**](https://cpisuite-europe-03.integrationsuite.cfapps.eu20-001.hana.ondemand.com/shell/home)
-- Als Nutzer verwenden Sie bitte **userXX**, ID **XX** und Passwort wird ihnen von der Übungsleitung zugewiesen bzw. genannt
+- [Exercise 1 - Explore SAP Integration Suite (optional)](exercises/ex1/)
+- [Exercise 1 - Exactly Once scenario with receiver not being idempotent](exercises/ex2/)
+- [Exercise 2 - Extend the Exactly Once scenario with Splitter step](exercises/ex3/)
 
 <!-- **OR** Link to the Tutorial Navigator for example... 
 Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).

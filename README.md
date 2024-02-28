@@ -20,8 +20,8 @@ In the following, the complete list of exercise steps are listed. You can use th
 If you are new to SAP Integration Suite, start with the first exercise. This shows you how to navigate within most of the SAP Integration Suite capabilities. Otherwise, if you are already experienced with SAP Integration Suite, you may skip this part.
 
 - [Exercise 1 - Explore SAP Integration Suite (optional)](exercises/ex1/)
-- [Exercise 1 - Exactly Once scenario with receiver not being idempotent](exercises/ex2/)
-- [Exercise 2 - Extend the Exactly Once scenario with Splitter step](exercises/ex3/)
+- [Exercise 2 - Exactly Once scenario with receiver not being idempotent](exercises/ex2/)
+- [Exercise 3 - Extend the Exactly Once scenario with Splitter step](exercises/ex3/)
 
 <!-- **OR** Link to the Tutorial Navigator for example... 
 Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).

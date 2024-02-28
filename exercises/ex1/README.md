@@ -78,4 +78,4 @@ Under **Settings - Runtime**, you will be able to activate or deactivate "Edge I
 
 You now have explored the tooling and different navigation aspects.
 
-Continue to - [Exercise 2 - Discover, design and run pre-built standard integration on Edge Integration Cell](../ex3/README.md)
+Continue to - [Exercise 2 - Exactly Once scenario with receiver not being idempotent](../ex2/README.md)

@@ -8,11 +8,11 @@ As a prerequisite, you first need to create an integration package where the int
 
 1. In the SAP Integration Suite landing page, navigate to <b>Design > Integrations and APIs</b>, and select  <b>Create</b>.
 
-<br>![](/exercises/ex2/images/00-01 Create Package.png)
+<br>![](exercises/ex2/images/00-01 Create Package.png)
    
 2. Fill in the <b>Name</b> of the integration package, e.g. **User XX** where <b>XX</b> is your user number from 00 to 99, and a short <b>Description</b>. The technical name is automatically set. Then click <b>Save</b>.
 
-<br>![](/exercises/ex2/images/00-02 Save Package.png)
+<br>![](exercises/ex2/images/00-02 Save Package.png)
 
 
 ## Copy

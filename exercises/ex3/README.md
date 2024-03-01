@@ -35,9 +35,8 @@ Parallel Processing: **unselected**
 
 <br>![](/exercises/ex3/images/03-08-ConfigureSplitter.png)
 
-6. Next, select the **Set Unique ID** content modifier, switch to the **Message Header** tab, and enhance the source value of the **uniqueID** header by adding the splitter index to the purchase order. The header value should be defined as follows:
+6. Next, select the **Set Unique ID** content modifier, switch to the **Message Header** tab, and enhance the source value of the **uniqueID** header by adding the splitter index to the purchase order. The header source value should be defined as follows:
 
-XPath Expression:
 ```yaml
 ${property.orderNumber}_${header.CamelSplitIndex}
 ```

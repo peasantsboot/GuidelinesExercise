@@ -56,7 +56,7 @@ In the following, you will browse through the integration flow model to understa
 
 <br>![](/exercises/ex2/images/02-07-EnterModel.png)
     
-2. In the integration flow designer you can browse through the model. As you can see, the **request-reply** step to send out the message to the receiver is placed within a **local integration process** which is at the end called via an **idempotent process call**. In the **idempotent process call**, the **message ID** is based on the **purchase order number** of the message payload. The **Skip Process Call for Duplicates** flag of the idempotent process call is selected ensuring that duplicates are discarded. If you have familiarized yourself with the model, select **Configure** from the top right.
+2. In the integration flow designer you can browse through the model. As you can see, the **request-reply** step to send out the message to the receiver is placed within a **local integration process** which is at the end called via an **idempotent process call**. In the **idempotent process call**, the **message ID** is based on the **purchase order number** of the message payload. The **Skip Process Call for Duplicates** flag of the idempotent process call is selected ensuring that duplicates are discarded. At the end of the integration flow a response is sent back: In the default case, confirming that the purchase order has been succesfully created. Otherwise, if the message with the same purchase order number is retried, a different message is returned informing you about the duplicate. If you have familiarized yourself with the model, select **Configure** from the top right.
 
 <br>![](/exercises/ex2/images/02-08-IntegrationFlow.png)
 

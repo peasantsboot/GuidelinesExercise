@@ -27,7 +27,7 @@ In the following, you will copy the integration flow **Pattern Quality Of Servic
 
 <br>![image](/exercises/ex2/images/02-01-EnterEOPackage.png)
    
-3. In the package **Exactly Once Use Cases**, switch to tab **Artifacts** and select **Copy** from the **Actions** menue of the integration flow **Pattern Quality Of Service - Receiver Not Idempotent**.
+3. In the package **Exactly Once Use Cases**, switch to tab **Artifacts** and select **Copy** from the **Actions** menu of the integration flow **Pattern Quality Of Service - Receiver Not Idempotent**.
 
 <br>![](/exercises/ex2/images/02-02-Copy.png)
    
@@ -56,7 +56,7 @@ In the following, you will browse through the integration flow model to understa
 
 <br>![](/exercises/ex2/images/02-07-EnterModel.png)
     
-2. In the integration flow designer you can browse through the model. Once done, select **Configure** from the top right.
+2. In the integration flow designer you can browse through the model. As you can see, the **request-reply** step to send out the message to the recever is placed within a **local integration process** which is at the end called via an **idempotent process call**. In the **idempotent process call**, the **message ID** is based on the **purchase order number** of the message payload. The **Skip Process Call for Duplicates** flag of the idempotent process call is selected ensuring that duplicates are discarded. If you have familiarized yourself with the model, select **Configure** from the top right.
 
 <br>![](/exercises/ex2/images/02-08-IntegrationFlow.png)
 
@@ -208,7 +208,7 @@ In the following, you may retest your integration flow with trace switched on. T
 
 <br>![image](/exercises/ex2/images/02-33-OpenTrace.png)
 
-8. In the trace, you should see that the request reply step within the idempotent local integration process **Send message to receiver** has been carried out. Furthermore, in the local integration process **Send reply** the lower path has been carried out defining the default message reponse that the purchase order has been successfully created.
+8. In the trace, you should see that the request reply step within the idempotent local integration process **Send message to receiver** has been carried out. Furthermore, in the local integration process **Send reply** the lower route has been carried out defining the default message reponse that the purchase order has been successfully created.
 
 <br>![image](/exercises/ex2/images/02-34-Trace4FirstMessage.png)
 
@@ -216,7 +216,7 @@ In the following, you may retest your integration flow with trace switched on. T
 
 <br>![image](/exercises/ex2/images/02-35-OpenSecondTrace.png)
 
-10. In the trace, you should now see that the idempotent local integration process **Send message to receiver** was skipped. Furthermore, in the local integration process **Send reply** the upper path has been carried out defining the message response in case of a duplicate.
+10. In the trace, you should now see that the idempotent local integration process **Send message to receiver** was skipped. Furthermore, in the local integration process **Send reply** the upper route has been carried out defining the message response in case of a duplicate.
 
 <br>![image](/exercises/ex2/images/02-36-Trace4SecondMessage.png)
 

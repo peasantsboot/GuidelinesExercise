@@ -47,7 +47,7 @@ ${property.orderNumber}_${header.CamelSplitIndex}
 
 <br>![](/exercises/ex3/images/03-10-AddFlowStep.png)
 
-8. In the upcoming screen, enter the search term **Gather**, and then select the entry **Gather** from the search hits..
+8. In the upcoming screen, enter the search term **Gather**, and then select the entry **Gather** from the search hits.
 
 <br>![](/exercises/ex3/images/03-11-AddGather.png)
 
@@ -99,11 +99,11 @@ In this chapter, you will test the integration flow. In the following, Insomnia 
 
 2. Navigate back to **Monitor > Integrations and API**, and select the **All Artifacts** tile below **Monitor Message Processing**.
 
-br>![](/exercises/ex3/images/03-21-MonitorTile.png)
+<br>![](/exercises/ex3/images/03-21-MonitorTile.png)
 
 3. In the **Monitor Message Processing** page, expand the filter section, and filter the **Sender** based on your participant number **XX**. You should see four new logs, one for your integration flow, and one for each of the overall three items which have been sent to a mocked receiver.
 
-br>![](/exercises/ex3/images/03-22-MessageMonitor.png)
+<br>![](/exercises/ex3/images/03-22-MessageMonitor.png)
 
 4. Navigate back to Insomnia. Keep the same order number and **Resend** the message. The request should return HTTP code 200 and a response informing you that the duplicate message has been discarded.
 
@@ -111,7 +111,7 @@ br>![](/exercises/ex3/images/03-22-MessageMonitor.png)
 
 5. Navigate back to the **Monitor Message Processing** page, and **Refresh**. You should see only one more log for your integration flow. No further messages have been sent to the mocked receiver because they have been identified as duplicates and hence discarded.
 
-br>![](/exercises/ex3/images/03-24-MessageMonitor.png)
+<br>![](/exercises/ex3/images/03-24-MessageMonitor.png)
 
 
 ## Summary

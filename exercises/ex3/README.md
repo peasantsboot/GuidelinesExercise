@@ -89,13 +89,13 @@ Aggregation Algorithm: **Concatenate**
 
 Now you are all set to test your updated scenario!
 
-## Test the splitter integration flow via Insomnia
+## Test the splitter integration flow
 
-In this chapter, you will test the integration flow. In the following, Insomnia is used. However you may use any other http client tool.
+In this chapter, you will test the integration flow. In the following, Bruno is used. However you may use any other http client tool.
 
-1. Reopen Insomnia, and select your request that you have created in the previous exercise. As you can see, it contains the previously pasted purchase order with three items. Increment the purchase order number by **1**, and click **Send**. The request should return HTTP code 200 and a response confirming that the order has been successfully created.
+1. Reopen Bruno or your test client, and select your request that you have created in the previous exercise. As you can see, it contains the previously pasted purchase order with three items. Increment the purchase order number by **1**, and click **Send**. The request should return HTTP code 200 and a response confirming that the order has been successfully created.
 
-<br>![](/exercises/ex3/images/03-20-Insomnia-SendNewOrder.png)
+<br>![](/exercises/ex3/images/03-30-SendNewOrder.png)
 
 2. Navigate back to **Monitor > Integrations and API**, and select the **All Artifacts** tile below **Monitor Message Processing**.
 
@@ -105,7 +105,7 @@ In this chapter, you will test the integration flow. In the following, Insomnia 
 
 <br>![](/exercises/ex3/images/03-22-MessageMonitor.png)
 
-4. Navigate back to Insomnia. Keep the same order number and **Resend** the message. The request should return HTTP code 200 and a response informing you that the duplicate message has been discarded.
+4. Navigate back to Bruno or your test client. Keep the same order number and **Resend** the message. The request should return HTTP code 200 and a response informing you that the duplicate message has been discarded.
 
 <br>![](/exercises/ex3/images/03-23-Insomnia-SendOrderAgain.png)
 

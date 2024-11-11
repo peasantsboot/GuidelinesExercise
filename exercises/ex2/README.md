@@ -100,7 +100,7 @@ In this chapter, you will test the integration flow. In the following, Bruno is 
 
 ### Option 1: Using Bruno API client
 
-1. Open the Bruno application on your laptop, expand the **Guidelines Exercises** collection and select the POST request **Request Purchase Order**. Paste the copied end point from the clipboard into the URL field or simply replace the **XX** in the URL with the id provided to you. Mmaintain your ID **XX** in the **PurchaseOrderNumber** attribute of the sample message. Ensure that the **eu03** environment has been selected. Then trigger a message by selecting the **Send Request** button on the upper right.
+1. Open the Bruno application on your laptop, expand the **Guidelines Exercises** collection and select the POST request **Request Purchase Order**. Paste the copied end point from the clipboard into the URL field or simply replace the **XX** in the URL with the id provided to you. Maintain your ID **XX** in the **PurchaseOrderNumber** attribute of the sample message. Ensure that the **eu03** environment has been selected. Then trigger a message by selecting the **Send Request** button on the upper right.
 
 <br>![](/exercises/ex2/images/02-01-SendRequestFirstTime.png)
 

@@ -6,6 +6,12 @@ As an integration developer, you need to make sure that you design integration f
 
 This session focuses on the Exactly Once guidelines applying different capabilities that allow to implement Exaclty Once delivery in Cloud Integration such as ID mapper and idempotent process calls.
 
+## Pre-requisites
+
+As a prerequisite to run the integration scenarios, you need to prepare the provided API test tool.
+
+- [Setup Bruno API client](exercises/prep/)
+
 ## Access to SAP Integration Suite tenant
 
 For running through the exercises, you need access to an SAP Integration Suite tenant.

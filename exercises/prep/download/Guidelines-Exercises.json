@@ -1,0 +1,66 @@
+{
+  "name": "Guidelines Exercises",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "Request Purchase Order",
+      "seq": 3,
+      "request": {
+        "url": "https://cpisuite-europe-03.it-cpi023-rt.cfapps.eu20-001.hana.ondemand.com/http/Pattern/QualityOfService/ReceiverNotIdempotent/XX",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "xml",
+          "json": "{\n  \"id\": \"dc3ea1c1-b4fb-4fa0-a83f-c6ae843b879c\",\n  \"orderId\":\"dabe136b-8efd-45de-a792-b73596af25f9\",\n  \"fulfillmentRequestId\": \"f876e666-ed01-4435-8ff2-8f3e8a276389\",\n  \"version\": 1,\n  \"orderNumber\": 456789,\n  \"precedingDocument\": null,\n  \"metadata\": {\n    \"createdAt\": \"2020-03-27T17:16:52.968Z\",\n    \"createdBy\": null,\n    \"changedAt\": \"2020-03-27T15:16:52.968Z\",\n    \"changedBy\": null\n  },\n  \"owner\": \"ruth@domain.com\",\n  \"market\": {\n    \"marketId\": \"A1\",\n    \"marketName\": \"US East\",\n    \"currency\": \"EUR\",\n    \"salesArea\": {\n      \"salesOrganization\": \"1710\",\n      \"distributionChannel\": \"10\",\n      \"division\": \"00\"\n    }\n  },\n  \"timeZone\": \"America/New_York\",\n  \"paymentData\": [\n    {\n      \"method\": \"Card\",\n      \"paymentCardToken\": \"as324dad333dddas22415ga\"\n    }\n  ],\n  \"customer\": {\n    \"customerNumber\": \"17100009\",\n    \"addresses\": [\n      {\n        \"street\": \"Billing Street\",\n        \"houseNumber\": \"1196\",\n        \"building\": \"buildBill-1\",\n        \"roomNumber\": \"11\",\n        \"floorNumber\": \"1\",\n        \"postalCode\": \"H1A 1H6\",\n        \"city\": \"Montreal\",\n        \"country\": \"CA\",\n        \"district\": \"bill2-district\",\n        \"state\": \"QC\",\n        \"phone\": \"5141112233\",\n        \"email\": \"Bill@Samplecustomer.Com\",\n        \"fax\": \"5141113344\",\n        \"additionalAddressInfo\": null,\n        \"correspondenceLanguage\": \"Fr\",\n        \"addressType\": \"BILL_TO\",\n        \"person\": {\n          \"firstName\": \"Bill\",\n          \"middleName\": \"MiddleBill\",\n          \"lastName\": \"LastNameBill\",\n          \"academicTitle\": \"Ms\"\n        },\n        \"pOBox\": \"1100\"\n      },\n      {\n        \"street\": \"Shipping Street\",\n        \"houseNumber\": \"2242\",\n        \"building\": \"ship-2\",\n        \"roomNumber\": \"22\",\n        \"floorNumber\": \"2\",\n        \"postalCode\": \"24152\",\n        \"city\": \"Chicago\",\n        \"country\": \"US\",\n        \"district\": \"ship2-district\",\n        \"state\": \"IL\",\n        \"phone\": \"2122223344\",\n        \"email\": \"Ship2@Samplecustomer.Com\",\n        \"fax\": \"2122224455\",\n        \"additionalAddressInfo\": \"test notes ship\",\n        \"correspondenceLanguage\": \"En\",\n        \"addressType\": \"SHIP_TO\",\n        \"person\": {\n          \"firstName\": \"Shipster\",\n          \"middleName\": \"MiddleShip\",\n          \"lastName\": \"LastNameShip\",\n          \"academicTitle\": \"Mr\"\n        },\n        \"pOBox\": \"abc\"\n      }\n    ]\n  },\n  \"description\": \"ruth's order\",\n  \"status\": \"RELEASED\",\n  \"priceType\": \"Net\",\n  \"customReferences\": [],\n  \"orderItems\": [\n    {\n      \"id\": \"4cd1629a-85be-41b4-b379-656288f25b21\",\n      \"lineNumber\": \"1\",\n      \"itemType\": \"physicalItem\",\n      \"quantity\": {\n        \"value\": 3,\n        \"unit\": \"PCE\"\n      },\n      \"product\": {\n        \"id\": \"e0981039-8298-464e-a8f0-32be92a8ba32\",\n        \"sourceSystemReference\": {\n          \"sourceSystemProductId\": \"TG11\"\n        }\n      },\n      \"customReferences\": [],\n      \"price\": {\n        \"aspectsData\": {\n          \"physicalItemPrice\": {\n            \"priceTotals\": [\n              {\n                \"priceCategory\": \"onetime\",\n                \"finalAmount\": 40.68\n              }\n            ]\n          }\n        }\n      },\n      \"aspectsData\": {\n        \"physicalItem\": {\n          \"scheduleLines\": [\n            {\n              \"deliverySource\": {\n                \"sourceId\": \"1710\",\n                \"sourceType\": \"STORE\",\n                \"sourceName\": \"Downtown\"\n              },\n              \"availableFrom\": \"2020-03-28T19:16:52.968Z\",\n              \"quantity\": {\n                \"unit\": \"PCE\",\n                \"value\": 3\n              }\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+          "xml": "<?xml version=\"1.0\"?>\n<ns0:PurchaseOrder xmlns:ns0=\"http://demo.sap.com/eip/qos\" PurchaseOrderNumber=\"XX-001\" OrderDate=\"2021-10-05\">\n\t<DeliveryNotes>This is a test message for EO</DeliveryNotes>\n\t<Items>\n\t\t<Item ItemNumber=\"10\">\n\t\t\t<ProductId>HT-1000</ProductId>\n\t\t\t<ProductName>Notebook Basic 15</ProductName>\n\t\t\t<Category>Notebooks</Category>\n\t\t\t<Quantity>1</Quantity>\n\t\t\t<CurrencyCode>EUR</CurrencyCode>\n\t\t\t<Price>956.00</Price>\n\t\t</Item>\n\t\t<Item ItemNumber=\"20\">\n\t\t\t<ProductId>HT-1001</ProductId>\n\t\t\t<ProductName>Notebook Basic 17</ProductName>\n\t\t\t<Category>Notebooks</Category>\n\t\t\t<Quantity>1</Quantity>\n\t\t\t<CurrencyCode>EUR</CurrencyCode>\n\t\t\t<Price>1249.00</Price>\n\t\t</Item>\n\t\t<Item ItemNumber=\"30\">\n\t\t\t<ProductId>HT-1030</ProductId>\n\t\t\t<ProductName>Ergo Screen</ProductName>\n\t\t\t<Category>Flat screens</Category>\n\t\t\t<Quantity>2</Quantity>\n\t\t\t<CurrencyCode>EUR</CurrencyCode>\n\t\t\t<Price>460.00</Price>\n\t\t</Item>\n\t</Items>\n</ns0:PurchaseOrder>",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "{{clientid}}",
+            "password": "{{clientsecret}}"
+          }
+        }
+      }
+    }
+  ],
+  "activeEnvironmentUid": "cveWSjOUEj78khldPxaNj",
+  "environments": [
+    {
+      "variables": [
+        {
+          "name": "clientid",
+          "value": "sb-3009327f-3dc1-4e3e-9853-5bd7c23e221d!b44358|it-rt-cpisuite-europe-03!b18631",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "clientsecret",
+          "value": "e507568e-892c-443f-a6ba-4d53f76fecac$wS5Kq2nV25PlNT-U8bh8Yd-HGoBZpO-XW7Za9X3URE0=",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        }
+      ],
+      "name": "eu03"
+    }
+  ],
+  "brunoConfig": {
+    "version": "1",
+    "name": "Guidelines Exercises",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}

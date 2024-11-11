@@ -183,7 +183,7 @@ In the following, you may retest your integration flow with trace switched on. T
 
 <br>![image](/exercises/ex2/images/02-29-TraceInfo.png)
 
-4. Navigate back to Insomnia, increment the purchase order number by **1**, and click **Send**. The request should return HTTP code 200 and a response confirming that the order has been successfully created.
+4. Navigate back to your API client, here Bruno, increment the purchase order number by **1**, and click **Send**. The request should return HTTP code 200 and a response confirming that the order has been successfully created.
 
 <br>![image](/exercises/ex2/images/02-30-SendNewOrder.png)
 

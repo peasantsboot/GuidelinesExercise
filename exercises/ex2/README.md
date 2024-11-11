@@ -102,15 +102,15 @@ In this chapter, you will test the integration flow. In the following, Bruno is 
 
 1. Open the Bruno application on your laptop, expand the **Guidelines Exercises** collection and select the POST request **Request Purchase Order**. Paste the copied end point from the clipboard into the URL field or simply replace the **XX** in the URL with the id provided to you. Mmaintain your ID **XX** in the **PurchaseOrderNumber** attribute of the sample message. Ensure that the **eu03** environment has been selected. Then trigger a message by selecting the **Send Request** button on the upper right.
 
-<br>![](/exercises/ex3/images/02-01-SendRequestFirstTime.png)
+<br>![](/exercises/ex2/images/02-01-SendRequestFirstTime.png)
 
 2. The request should return HTTP code 200 and a response confirming that the order has been successfully created.
 
-<br>![](/exercises/ex3/images/02-02-SendRequestFirstTimeResponse.png)
+<br>![](/exercises/ex2/images/02-02-SendRequestFirstTimeResponse.png)
 
 3. Keep the same order number and **Resend** the message. The request should return HTTP code 200 and a response informing you that the duplicate message has been discarded.
 
-<br>![](/exercises/ex3/images/02-03-SendRequestSecondTimeResponse.png)
+<br>![](/exercises/ex2/images/02-03-SendRequestSecondTimeResponse.png)
 
 ### Option 2: Using your own API client
 

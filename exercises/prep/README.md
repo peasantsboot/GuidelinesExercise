@@ -36,7 +36,7 @@ Import the provided collection if not already done.
 
 As part of the collection, environment parameters have been maintained, that is **client id** and **client secret** to be able to authenticate at the Cloud Integration tenant.
 
-1. You should see one request. In order to be able to select an environment, you need to the request.
+1. You should see one request. In order to be able to select an environment, you need to open the request.
 
 <br>![](/exercises/prep/images/bruno-import-collection-requests.png)
 

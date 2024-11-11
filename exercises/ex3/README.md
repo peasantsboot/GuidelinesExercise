@@ -107,7 +107,7 @@ In this chapter, you will test the integration flow. In the following, Bruno is 
 
 4. Navigate back to Bruno or your test client. Keep the same order number and **Resend** the message. The request should return HTTP code 200 and a response informing you that the duplicate message has been discarded.
 
-<br>![](/exercises/ex3/images/03-23-Insomnia-SendOrderAgain.png)
+<br>![](/exercises/ex3/images/03-31-SendNewOrderAgain.png)
 
 5. Navigate back to the **Monitor Message Processing** page, and **Refresh**. You should see only one more log for your integration flow. No further messages have been sent to the mocked receiver because they have been identified as duplicates and hence discarded.
 

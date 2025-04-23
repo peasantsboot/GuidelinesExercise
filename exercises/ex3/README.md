@@ -117,3 +117,5 @@ In this chapter, you will test the integration flow. In the following, Bruno is 
 ## Summary
 
 Congratulations. You have successfully updated and tested your splitter scenario.
+
+Continue to - [Exercise 4 - Exactly Once In Order scenario using exclusive queues](../ex4/README.md)

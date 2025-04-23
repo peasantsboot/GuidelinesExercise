@@ -225,7 +225,15 @@ e507568e-892c-443f-a6ba-4d53f76fecac$wS5Kq2nV25PlNT-U8bh8Yd-HGoBZpO-XW7Za9X3URE0
 5. Add the following headers:
 - **forceError** with value **true**
 - **queueid** with any value
-- **messageid** with a GUID as hexadecimal digits. Note, in Bruno we can use **{{uuid}}** to generate a GUID, in Postman you can use **{{$guid}}**.
+- **messageid** with a GUID as hexadecimal digits.
+
+Note, in Bruno we need to put the following script into the Pre Request to generate a v4 GUID. Then  we can use the variable **{{uuid}}** in the header.
+
+```yaml
+bru.setVar('uuid', require("uuid").v4());
+```
+
+In Postman, you can simply use **{{$guid}}**.
 
 6. Trigger a message. Upon success, you should get a response confirming that the message has been passed to the exclusive queue.
 7. Change the **forceError** header to **false**, then resend the message. You should get a response confirming that the message has been passed to the exclusive queue.

@@ -74,7 +74,7 @@ In the following, you will enhance the copied integration flow model to ensure E
 
 <br>![](/exercises/ex4/images/04-10-SelectJMS.png)
    
-6. In the Properties section of the JMS receiver adapter, switch to the **Processing** tab, and enter the externalized parameter **queueName** into the **Queue Name** field. Note, you create or reuse externalized parameters with opening and closing double curly brackets.
+6. In the Properties section of the JMS receiver adapter, switch to the **Processing** tab, and enter the externalized parameter **queueName** into the **Queue Name** field. Note, you create or reuse externalized parameters by placing the parameter name between opening and closing double curly brackets.
 
 <br>Queue Name =
 ```yaml
@@ -87,15 +87,15 @@ In the following, you will enhance the copied integration flow model to ensure E
 
 <br>![](/exercises/ex4/images/04-12-SelectExclusive.png)
 
-8. Scroll down to the **Integration Process: Consumer flow**, and add a JMS sender connection between the Sender and the message start event. On the tab **Connection** of the JMS sender adapter, maintain the same externalized parameter **queueName** that we used before for the JMS receiver adapter into the **Queue Name** field, change the **Access Type** to **Exclusive** from the drop down menu, and **unselect** the **Exponential Backoff** flag.
+8. Scroll down to the **Integration Process: Consumer flow**, and add a JMS sender connection between the Sender and the message start event. On the tab **Connection** of the JMS sender adapter, maintain the same externalized parameter **queueName** that we used before for the JMS receiver adapter into the **Queue Name** field, change the **Access Type** to **Exclusive**, and **unselect** the **Exponential Backoff** flag. Latter makes testing of the flow easier.
 
 <br>![](/exercises/ex4/images/04-14-JMSSender.png)
 
-9. xxx
+9. From the editor palette, select the **Content Modifier** entry below the **Transformation** menue to drag ...
 
 <br>![](/exercises/ex4/images/04-16-SelectContentModifier.png)
 
-10. xxx
+10. ... and drop the flow step on the connecting line between the router and the message end event. In the **Content Modifier**, switch to the **Message Header** tab, and add two new headers as follows:
 
 <br>![](/exercises/ex4/images/04-17-AddHeaders.png)
 

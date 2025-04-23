@@ -29,8 +29,7 @@ In the following, you will copy the integration flow **Pattern Quality Of Servic
 
 <br>![image](/exercises/ex2/images/02-01-EnterEOPackage.png)
    
-3. In the package **Exactly Once & Exactly Once In Order Use Cases**, switch to tab **Artifacts** and select **Copy** from the **Actions** menu
-4. of the integration flow **Pattern Quality Of Service - EOIO Template**.
+3. In the package **Exactly Once & Exactly Once In Order Use Cases**, switch to tab **Artifacts** and select **Copy** from the **Actions** menu of the integration flow **Pattern Quality Of Service - EOIO Template**.
 
 <br>![](/exercises/ex4/images/04-01-Copy.png)
    

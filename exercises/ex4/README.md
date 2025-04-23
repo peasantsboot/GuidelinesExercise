@@ -87,15 +87,25 @@ In the following, you will enhance the copied integration flow model to ensure E
 
 <br>![](/exercises/ex4/images/04-12-SelectExclusive.png)
 
-8. In the monitoring overview page, select the tile **Manage Integration Content**.
+8. Scroll down to the **Integration Process: Consumer flow**, and add a JMS sender connection between the Sender and the message start event. On the tab **Connection** of the JMS sender adapter, maintain the same externalized parameter **queueName** that we used before for the JMS receiver adapter into the **Queue Name** field, change the **Access Type** to **Exclusive** from the drop down menu, and **unselect** the **Exponential Backoff** flag.
 
-<br>![](/exercises/ex2/images/02-14-ManageIntegrationContent.png)
+<br>![](/exercises/ex4/images/04-14-JMSSender.png)
 
-9. In the **Manage Integration Content** page, filter for your ID **XX**. You should see your deployed integration flow in status **Started**. Select the **Copy entry point URL to clipboard** button next to the integration flow's end point as we will use it in the next step.
+9. xxx
 
-<br>![](/exercises/ex2/images/02-15-CopyEndPoint.png)
+<br>![](/exercises/ex4/images/04-16-SelectContentModifier.png)
 
+10. xxx
 
+<br>![](/exercises/ex4/images/04-17-AddHeaders.png)
+
+11. xxx
+
+<br>![](/exercises/ex4/images/04-18-XIAdapter.png)
+
+12. xxx
+
+<br>![](/exercises/ex4/images/04-19-Save.png)
 
 ## Configure and deploy your integration flow
 

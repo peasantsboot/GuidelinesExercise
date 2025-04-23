@@ -244,11 +244,11 @@ In the following, we monitor the processed messages to confirm that In Order pro
 
 3. One more message log is in status **Retry**. This is the message which was read from the exclusive queue via the consumer flow and were we intentionally forced an error. Note, the second message is in sort of hold status as long as the predecessor message hasn't been either successfully processed or canceled. For this reason, we only see one log entry for the consumer flow.
 
-<br>![image](/exercises/ex4/images/02-29-MPLConsumer.png)
+<br>![image](/exercises/ex4/images/04-29-MPLConsumer.png)
 
 4. Let's monitor the queues. Navigate back to the monitoring overview page, and select the tile **Message Queues**.
 
-<br>![image](/exercises/ex4/images/02-30-QueueTile.png)
+<br>![image](/exercises/ex4/images/04-30-QueueTile.png)
 
 5. In the **Manage Message Queues**, filter for your participant number, and select the exclusive queue **eoio_XX** with **XX** the participant numnber assigned to you. You should see two entries in **Waiting** status. The first actually belongs to the erroneous message which is in retry, the second belongs to the successor message which is on hold. Since we always trigger an error whenever the first message is retried, the only option to resolve the situation is to delete the message from the exclusive queue. Select the first entry and then select **Delete**.
 

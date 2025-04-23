@@ -23,11 +23,11 @@ In the following, you will copy the integration flow **Pattern Quality Of Servic
 
 <br>![image](/exercises/ex2/images/02-00-NavigateBack.png)
 
-2. Open the package **Exactly Once Use Cases** by selecting the same.
+2. Open the package **Exactly Once & Exactly Once In Order Use Cases** by selecting the same.
 
 <br>![image](/exercises/ex2/images/02-01-EnterEOPackage.png)
    
-3. In the package **Exactly Once Use Cases**, switch to tab **Artifacts** and select **Copy** from the **Actions** menu of the integration flow **Pattern Quality Of Service - Receiver Not Idempotent**.
+3. In the package **Exactly Once & Exactly Once In Order Use Cases**, switch to tab **Artifacts** and select **Copy** from the **Actions** menu of the integration flow **Pattern Quality Of Service - Receiver Not Idempotent**.
 
 <br>![](/exercises/ex2/images/02-02-Copy.png)
    

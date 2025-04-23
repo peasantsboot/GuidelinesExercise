@@ -91,61 +91,55 @@ In the following, you will enhance the copied integration flow model to ensure E
 
 <br>![](/exercises/ex4/images/04-14-JMSSender.png)
 
-9. From the editor palette, select the **Content Modifier** entry below the **Transformation** menue to drag ...
+9. Next, we need to pass the quality of service and a queue id to the XI receiver adapter. From the editor palette, select the **Content Modifier** entry below the **Transformation** menue and drag ...
 
-<br>![](/exercises/ex4/images/04-16-SelectContentModifier.png)
+<br>![](/exercises/ex4/images/04-16a-SelectContentModifier.png)
 
 10. ... and drop the flow step on the connecting line between the router and the message end event. In the **Content Modifier**, switch to the **Message Header** tab, and add two new headers as follows:
 
+Create header with Name **SapQualityOfService**, Source Type **Constant**, and value **ExactlyOnceInOrder**
+
+Create header with Name **SapQueueId**, Source Type **Header**, and value **queueid**
+
 <br>![](/exercises/ex4/images/04-17-AddHeaders.png)
 
-11. xxx
+11. Maintain the connection between the message end event and the Receiver of adapter type **XI**. Switch to the **Delivery Assurance** tab, and maintain the parameters as follows:
+
+As **XI Message ID Determination**, select **Map** from the drop down list.
+
+Maintain **Source for XI Message ID** as
+```yaml
+${header.messageid}
+```
+
+As **Quality Of Service**, select **Handled by Integration Flow** from the drop down menu.
 
 <br>![](/exercises/ex4/images/04-18-XIAdapter.png)
 
-12. xxx
+12. Finally **Save** your changes and then **Cancel** so that you can proceed with configuring the flow.
 
 <br>![](/exercises/ex4/images/04-19-Save.png)
 
+
 ## Configure and deploy your integration flow
 
-In the following, you will enhance the copied integration flow model to ensure Exactly Once In Order delivery.
+In the following, you will configure and deploy the beforehand modified integration flow.
     
-1.  In your package, select the copied integration flow **Pattern Quality Of Service - Receiver Not Idempotent XX** with **XX** the ID assigned to you to open the model designer.
+1.  After having saved and canceled, you should see the **Configure** button on the upper right. Select **Configure**.
 
-<br>![](/exercises/ex2/images/02-07-EnterModel.png)
+<br>![](/exercises/ex4/images/04-20-Configure.png)
     
-2. In the integration flow designer you can browse through the model. As you can see, the **request-reply** step to send out the message to the receiver is placed within a **local integration process** which is at the end called via an **idempotent process call**. In the **idempotent process call**, the **message ID** is based on the **purchase order number** of the message payload. The **Skip Process Call for Duplicates** flag of the idempotent process call is selected ensuring that duplicates are discarded. At the end of the integration flow a response is sent back: In the default case, confirming that the purchase order has been succesfully created. Otherwise, if the message with the same purchase order number is retried, a different message is returned informing you about the duplicate. If you have familiarized yourself with the model, select **Configure** from the top right.
+2. In the configuration dialog, maintain the value of the **participantNumber** parameter. Replace **XX** with the number assigned to you. The parameter value is actually appended to the integration flow end point to ensure a unique end point deployed on the tenant.
 
-<br>![](/exercises/ex2/images/02-08-IntegrationFlow.png)
+<br>![](/exercises/ex4/images/04-21-ConfigureXX.png)
 
-3. In the configuration dialog, enter your number **XX** into the **participantNumber** parameter. The parameter value is actually appended to the integration flow end point to ensure a unique end point deployed on the tenant. Then **Save**.
+3. Select the **Sender1** from the Sender drop down, and maintain the value of the **Queue Name** parameter. Replace **XX** of the preconfigured queue name **eoie_XX** with the number assigned to you. Then **Save** and **Deploy**.
 
-<br>![](/exercises/ex2/images/02-09-ConfigureSave.png)
+<br>![](/exercises/ex4/images/04-22-SaveAndDeploy.png)
   
-4. Once saved, **Deploy** the integration flow.
+4. Once deployed, you should see a toast message on the bottom of the screen. Furthermore, the **Runtime Status** on top should show as **Started**.
 
-<br>![](/exercises/ex2/images/02-10-ConfigureDeploy.png)
-
-5. In the upcoming confirmation dialog, keep the Runtime Profile **Cloud Integration** and select **Yes**. 
-
-<br>![](/exercises/ex2/images/02-11-DeployConfirm.png)
-   
-6. Close the upcoming deployment information dialog by selecting **OK**.
-
-<br>![](/exercises/ex2/images/02-12-DeploymentOK.png)
-   
-7. Let's check the deployment status. Navigate to **Monitor > Integrations and APIs** from the menu.
-
-<br>![](/exercises/ex2/images/02-13-NavigateMonitoring.png)
-
-8. In the monitoring overview page, select the tile **Manage Integration Content**.
-
-<br>![](/exercises/ex2/images/02-14-ManageIntegrationContent.png)
-
-9. In the **Manage Integration Content** page, filter for your ID **XX**. You should see your deployed integration flow in status **Started**. Select the **Copy entry point URL to clipboard** button next to the integration flow's end point as we will use it in the next step.
-
-<br>![](/exercises/ex2/images/02-15-CopyEndPoint.png)
+<br>![](/exercises/ex4/images/04-23-Started.png)
 
 Now you are all set to test your scenario!
 

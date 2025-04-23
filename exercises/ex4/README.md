@@ -141,6 +141,14 @@ In the following, you will configure and deploy the beforehand modified integrat
 
 <br>![](/exercises/ex4/images/04-23-Started.png)
 
+5. Let's fetch the end point of the deployed integration flow. Navigate to **Monitor > Integrations and APIs** from the menu, and select the tile **Manage Integration Content**.
+
+<br>![](/exercises/ex4/images/04-23b-ManageIntegrationContent.png)
+
+6. In the **Manage Integration Content** page, filter for your ID **XX**. You should see your deployed integration flow in status **Started**. Select the **Copy entry point URL to clipboard** button next to the integration flow's end point as we will use it in the next step.
+
+<br>![](/exercises/ex4/images/04-23c-CopyEndPoint.png)
+
 Now you are all set to test your scenario!
 
 ## Testing
@@ -153,17 +161,14 @@ In this chapter, you will test the integration flow. In the following, Bruno is 
 
 ### Option 1: Using Bruno API client
 
-1. Open the Bruno application on your laptop, expand the **Guidelines Exercises** collection and select the POST request **Request Purchase Order**. Paste the copied end point from the clipboard into the URL field or simply replace the **XX** in the URL with the id provided to you. Maintain your ID **XX** in the **PurchaseOrderNumber** attribute of the sample message. Ensure that the **eu03** environment has been selected. Then trigger a message by selecting the **Send Request** button on the upper right.
+1. Open the Bruno application on your laptop, expand the **Guidelines Exercises** collection and select the POST request **EOIO request**. Paste the copied end point from the clipboard into the URL field or simply replace the **XX** in the URL with the id provided to you. First, we like to create a message which should intentionally result into an error to block the queue. Switch to the **Headers** tab, and change the value of the header **forceError** to **true**. Ensure that the **eu03** environment has been selected. Then trigger a message by selecting the **Send Request** button on the upper right. The request should return HTTP code 200 and a response confirming that the message has been passed to the exclusive queue.
 
-<br>![](/exercises/ex2/images/02-01-SendRequestFirstTime.png)
+<br>![](/exercises/ex4/images/04-25-BrunoError.png)
 
-2. The request should return HTTP code 200 and a response confirming that the order has been successfully created.
+2. Now, let's send another message which should be at the end successfully processed. Change the value of the header **forceError** back to **false**. Then trigger a message by selecting the **Send Request** button on the upper right. The request should return HTTP code 200 and a response confirming that the message has been passed to the exclusive queue.
 
-<br>![](/exercises/ex2/images/02-02-SendRequestFirstTimeResponse.png)
+<br>![](/exercises/ex4/images/04-26-BrunoSuccess.png)
 
-3. Keep the same order number and **Resend** the message. The request should return HTTP code 200 and a response informing you that the duplicate message has been discarded.
-
-<br>![](/exercises/ex2/images/02-03-SendRequestSecondTimeResponse.png)
 
 ### Option 2: Using your own API client
 
@@ -171,11 +176,11 @@ In this chapter, you will test the integration flow. In the following, Bruno is 
 
 2. Paste the copied end point from the clipboard into the URL field. 
 
-3. Enter the following payload into the body section and maintain your ID **XX** in the **PurchaseOrderNumber** attribute of the sample message.
+3. Enter the following payload into the body section of the sample message.
 
 ```xml
 <?xml version="1.0"?>
-<ns0:PurchaseOrder xmlns:ns0="http://demo.sap.com/eip/qos" PurchaseOrderNumber="XX-001" OrderDate="2021-10-05">
+<ns0:PurchaseOrder xmlns:ns0="http://demo.sap.com/eip/qos" PurchaseOrderNumber="XX-101" OrderDate="2021-10-05">
 	<DeliveryNotes>This is a test message for EO</DeliveryNotes>
 	<Items>
 		<Item ItemNumber="10">
@@ -217,60 +222,51 @@ sb-3009327f-3dc1-4e3e-9853-5bd7c23e221d!b44358|it-rt-cpisuite-europe-03!b18631
 e507568e-892c-443f-a6ba-4d53f76fecac$wS5Kq2nV25PlNT-U8bh8Yd-HGoBZpO-XW7Za9X3URE0=
 ```
 
-5. Trigger a message. Upon success, you should get a response confirming that the order has been successfully created.
-6. Resend the request with the same order number. This time you should get a response that the message has been discarded.
+5. Add the following headers:
+- **forceError** with value **true**
+- **queueid** with any value
+- **messageid** with a GUID as hexadecimal digits. Note, in Bruno we can use **{{uuid}}** to generate a GUID, in Postman you can use **{{$guid}}**.
 
-## Retest the integration flow with trace switched on (Optional)
+6. Trigger a message. Upon success, you should get a response confirming that the message has been passed to the exclusive queue.
+7. Change the **forceError** header to **false**, then resend the message. You should get a response confirming that the message has been passed to the exclusive queue.
 
-In the following, you may retest your integration flow with trace switched on. This chapter is optional. You may also skip this chapter and proceed to the [next exercise](../ex3/README.md).
+## Monitor the messages and queue
 
-1. Navigate back to the **Manage Integration Content** page of the monitor overview, and change the **Log Level** of your deployed integration flow to **Trace**.
+In the following, we monitor the processed messages to confirm that In Order processing is kept.
 
-<br>![image](/exercises/ex2/images/02-27-SwitchOnTrace.png)
+1. Navigate back to the monitoring page of Cloud Integration, and select the tile **Monitor Message Processing**.
 
-2. Confirm the upcoming dialog by clicking **Change**.
+<br>![image](/exercises/ex4/images/04-27-MonitorTile.png)
 
-<br>![image](/exercises/ex2/images/02-28-ConfirmTrace.png)
+2. In the **Monitor Message Processing**, you should see two logs belonging to your participant ID in status **Completed** with Sender **XX** and Receiver **JMSExclusiveQueue**. Those are the messages which went through the provider flow and which were put into the exclusive queue.
 
-3. As you can see from the information below the Log Level settings, the trace has been switched on for a limited time.
+<br>![image](/exercises/ex4/images/04-28-MPLProvider.png)
 
-<br>![image](/exercises/ex2/images/02-29-TraceInfo.png)
+3. One more message log is in status **Retry**. This is the message which was read from the exclusive queue via the consumer flow and were we intentionally forced an error. Note, the second message is in sort of hold status as long as the predecessor message hasn't been either successfully processed or canceled. For this reason, we only see one log entry for the consumer flow.
 
-4. Navigate back to your API client, here Bruno, increment the purchase order number by **1**, and click **Send**. The request should return HTTP code 200 and a response confirming that the order has been successfully created.
+<br>![image](/exercises/ex4/images/02-29-MPLConsumer.png)
 
-<br>![image](/exercises/ex2/images/02-30-SendNewOrder.png)
+4. Let's monitor the queues. Navigate back to the monitoring overview page, and select the tile **Message Queues**.
 
-5. Keep the same order number and **Resend** the message. The request should return HTTP code 200 and a response informing you that the duplicate message has been discarded.
+<br>![image](/exercises/ex4/images/02-30-QueueTile.png)
 
-<br>![image](/exercises/ex2/images/02-31-SendNewOrderAgain.png)
+5. In the **Manage Message Queues**, filter for your participant number, and select the exclusive queue **eoio_XX** with **XX** the participant numnber assigned to you. You should see two entries in **Waiting** status. The first actually belongs to the erroneous message which is in retry, the second belongs to the successor message which is on hold. Since we always trigger an error whenever the first message is retried, the only option to resolve the situation is to delete the message from the exclusive queue. Select the first entry and then select **Delete**.
 
-6. Navigate back to the **Manage Integration Content** page of the monitor overview, and select the **Monitor Message Processing** link below the **Artifact Details** of your deployed integration flow.
+<br>![image](/exercises/ex4/images/04-31-QueueDeleteEntry.png)
 
-<br>![image](/exercises/ex2/images/02-32-NavigateMessageMonitor.png)
+6. In the upcoming dialog, you need to confirm the deletion.
 
-7. In the message monitor, you should see two new logs in status **Completed**. Select the **second** log entry from the top. Then select the **Trace** link next to the **Log Level** to open the trace.
+<br>![image](/exercises/ex4/images/04-32-ConfirmDelete.png)
 
-<br>![image](/exercises/ex2/images/02-33-OpenTrace.png)
+7. Once the message was deleted from the queue, keep refreshing. After a while, the second message should be removed from the queue and hopefully succesfully processed.
 
-8. In the trace, you should see that the request reply step within the idempotent local integration process **Send message to receiver** has been carried out. Furthermore, in the local integration process **Send reply** the lower route has been carried out defining the default message reponse that the purchase order has been successfully created.
+<br>![image](/exercises/ex4/images/04-33-Refresh.png)
 
-<br>![image](/exercises/ex2/images/02-34-Trace4FirstMessage.png)
+8. Navigate back to the **Monitor Message Processing**. You should see one log in status **Cancelled** and a new log of your integration flow in status **Completed**. 
 
-9. Switch back and select the **uppermost** log entry. Then select the **Trace** link next to the **Log Level** to open the trace.
+<br>![image](/exercises/ex4/images/04-34-MPLFinal.png)
 
-<br>![image](/exercises/ex2/images/02-35-OpenSecondTrace.png)
-
-10. In the trace, you should now see that the idempotent local integration process **Send message to receiver** was skipped. Furthermore, in the local integration process **Send reply** the upper route has been carried out defining the message response in case of a duplicate.
-
-<br>![image](/exercises/ex2/images/02-36-Trace4SecondMessage.png)
-
-11. Finally, select the **Process Call** run step, then on the top switch to the **Message Content** tab, then switch to tab **Exchange Properties**. As you can see, the exchange property **CamelDuplicateMessage** was set to **true**.
-
-<br>![image](/exercises/ex2/images/02-37-CamelDuplicateMessage.png)
 
 ## Summary
 
-Congratulations. You have successfully tested your scenario.
-
-Continue to - [Exercise 3 - Extend the Exactly Once scenario with Splitter step](../ex3/README.md)
-
+Congratulations. You have successfully modelled and tested an Exactly Once In Order scenario.

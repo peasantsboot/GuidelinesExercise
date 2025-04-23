@@ -2,9 +2,9 @@
 
 ## Overview
 
-As an integration developer, you need to make sure that you design integration flows in a robust fashion in order to safeguard your company's mission-critical business processes. The [Integration Flow Design Guidelines](https://help.sap.com/docs/integration-suite/sap-integration-suite/integration-flow-design-guidelines) help to design enterprise-grade integration flows on the Cloud Integration capability of SAP Integration Suite. They cover different aspects such as resource handling, better readability, security, error handling, etc. In addition, the most common Enterprise Integration Patterns are provided. As part of the patterns, we also provide guidelines about how to implement Quality of Service Exactly Once.
+As an integration developer, you need to make sure that you design integration flows in a robust fashion in order to safeguard your company's mission-critical business processes. The [Integration Flow Design Guidelines](https://help.sap.com/docs/integration-suite/sap-integration-suite/integration-flow-design-guidelines) help to design enterprise-grade integration flows on the Cloud Integration capability of SAP Integration Suite. They cover different aspects such as resource handling, better readability, security, error handling, etc. In addition, the most common Enterprise Integration Patterns are provided. As part of the patterns, we also provide guidelines about how to implement Quality of Service Exactly Once and Exactly Once In Order.
 
-This session focuses on the Exactly Once guidelines applying different capabilities that allow to implement Exaclty Once delivery in Cloud Integration such as ID mapper and idempotent process calls.
+This session focuses on the Exactly Once and Exactly Once In Order guidelines applying different capabilities that allow to implement Exaclty Once delivery in Cloud Integration such as ID mapper and idempotent process calls and Exactly Once In Order delivery via exclusive JMS queues.
 
 ## Pre-requisites
 
@@ -28,6 +28,7 @@ If you are new to SAP Integration Suite, start with the first exercise. This sho
 - [Exercise 1 - Explore SAP Integration Suite (optional)](exercises/ex1/)
 - [Exercise 2 - Exactly Once scenario with receiver not being idempotent](exercises/ex2/)
 - [Exercise 3 - Extend the Exactly Once scenario with Splitter step](exercises/ex3/)
+- [Exercise 4 - Exactly Once In Order scenario using exclusive queues](exercises/ex4/)
 
 <!-- **OR** Link to the Tutorial Navigator for example... 
 Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
